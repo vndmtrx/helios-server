@@ -191,8 +191,8 @@ if ANYMAIL["MAILGUN_API_KEY"]:
 ##
 
 
-MEDIA_ROOT = os.path.join(ROOT_PATH, 'media')
-STATIC_URL = os.path.join(ROOT_PATH, 'static')
+MEDIA_ROOT = os.path.join(ROOT_PATH, 'media/')
+STATIC_URL = os.path.join(ROOT_PATH, 'static/')
 
 # a relative path where voter upload files are stored
 VOTER_UPLOAD_REL_PATH = "voters/%Y/%m/%d"
