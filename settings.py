@@ -44,11 +44,11 @@ SHOW_USER_INFO = (get_from_env('SHOW_USER_INFO', '1') == '1')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'helios',
-        'PASSWORD': 'heliosteste',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        'NAME': 'helios',
+        'NAME': get_from_env('DB_NAME', 'helios'),
+        'USER': get_from_env('DB_USER', 'helios'),
+        'PASSWORD':  get_from_env('DB_PWD', 'heliosteste'),
+        'HOST': get_from_env('POSTGRES_HOST', 'localhost'),
+        'PORT': get_from_env('POSTGRES_PORT', '5432'),
         'CONN_MAX_AGE': 600,
     },
 }
@@ -64,11 +64,11 @@ if get_from_env('DATABASE_URL', None):
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Los_Angeles'
+TIME_ZONE = 'America/Sao_Paulo'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 SITE_ID = 1
 
@@ -191,8 +191,8 @@ if ANYMAIL["MAILGUN_API_KEY"]:
 ##
 
 
-MEDIA_ROOT = ROOT_PATH + "media/"
-STATIC_URL = ROOT_PATH + "static/"
+MEDIA_ROOT = os.path.join(ROOT_PATH, 'media')
+STATIC_URL = os.path.join(ROOT_PATH, 'static')
 
 # a relative path where voter upload files are stored
 VOTER_UPLOAD_REL_PATH = "voters/%Y/%m/%d"
