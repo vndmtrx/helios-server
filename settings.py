@@ -8,6 +8,12 @@ import os
 import ldap
 from django_auth_ldap.config import LDAPSearch
 
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
 TESTING = 'test' in sys.argv
 
 # go through environment variables and override them
