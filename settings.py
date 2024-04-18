@@ -44,6 +44,10 @@ SHOW_USER_INFO = (get_from_env('SHOW_USER_INFO', '1') == '1')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'USER': 'helios',
+        'PASSWORD': 'heliosteste',
+        'HOST': 'localhost',
+        'PORT': '5432',
         'NAME': 'helios',
         'CONN_MAX_AGE': 600,
     },
@@ -129,6 +133,8 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
 ROOT_URLCONF = 'urls'
@@ -147,7 +153,11 @@ TEMPLATES = [
             # os.path.join(ROOT_PATH, 'server_ui/templates'),  # covered by APP_DIRS:True
         ],
         'OPTIONS': {
-            'debug': DEBUG
+            'debug': DEBUG,
+            'context_processors': [
+                "django.contrib.auth.context_processors.auth",
+                'django.contrib.messages.context_processors.messages',
+            ],
         }
     },
 ]
@@ -157,6 +167,11 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+
+    'django.contrib.messages',
+    'django.contrib.admin',
+    'django.contrib.staticfiles',
+
     'anymail',
     ## HELIOS stuff
     'helios_auth',
@@ -177,6 +192,7 @@ if ANYMAIL["MAILGUN_API_KEY"]:
 
 
 MEDIA_ROOT = ROOT_PATH + "media/"
+STATIC_URL = ROOT_PATH + "static/"
 
 # a relative path where voter upload files are stored
 VOTER_UPLOAD_REL_PATH = "voters/%Y/%m/%d"
@@ -224,9 +240,9 @@ HELIOS_PRIVATE_DEFAULT = False
 # authentication systems enabled
 # AUTH_ENABLED_SYSTEMS = ['password','facebook','twitter', 'google', 'yahoo']
 AUTH_ENABLED_SYSTEMS = get_from_env('AUTH_ENABLED_SYSTEMS',
-                                    get_from_env('AUTH_ENABLED_AUTH_SYSTEMS', 'password,google,facebook')
+                                    get_from_env('AUTH_ENABLED_AUTH_SYSTEMS', 'password')
                                     ).split(",")
-AUTH_DEFAULT_SYSTEM = get_from_env('AUTH_DEFAULT_SYSTEM', get_from_env('AUTH_DEFAULT_AUTH_SYSTEM', None))
+AUTH_DEFAULT_SYSTEM = get_from_env('AUTH_DEFAULT_SYSTEM', get_from_env('AUTH_DEFAULT_AUTH_SYSTEM', 'password'))
 
 # google
 GOOGLE_CLIENT_ID = get_from_env('GOOGLE_CLIENT_ID', '')
