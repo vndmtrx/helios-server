@@ -1,34 +1,34 @@
-Dear {{voter.name}},
+Caro(a) {{voter.name}},
 
 {{custom_message|safe}}
 
-Election URL (click to begin voting):
+URL da eleição (clique para iniciar a votaçãor):
 {{election_vote_url}}
 
 {% ifequal voter.voter_type "password" %}
-Your voter ID: {{voter.voter_login_id}}
-Your password: {{voter.voter_password}}
+Seu ID de eleitor: {{voter.voter_login_id}}
+Sua senha: {{voter.voter_password}}
 {% else %}
-Log in with your {{voter.voter_type}} account.
+Faça o log in com sua conta {{voter.voter_type}}.
 {% endifequal %}{% if voter.vote_hash %}
-We have recorded your vote with ballot tracker:
+Seu voto foi gravado com o rastreador de votação:
 
   {{voter.vote_hash}}
 
-You may re-vote if you wish: only your last vote counts.
+Você pode votar novamente se desejar: apenas o último voto conta.
 {% endif %}{% if election.use_voter_aliases %}
-In order to protect your privacy, this election is configured
-to never display your voter login ID, name, or email address to the public.
-Instead, the ballot tracking center will only display your alias.
+Para proteger sua privacidade, esta eleição é configurada
+para nunca exibir seu ID de eleitor, nome ou e-mail para o público.
+Em vez disso, o centro de rastramento de votos exibirá o seu alias.
 
 Your voter alias is {{voter.alias}}.
 
-IMPORTANTLY, when you are prompted to log in to vote,
-please use your *voter ID*, not your alias.
+IMPORTANTE: quando fizer o log in para votar,
+por favor utilize seu *ID de eleitor*, e não o seu alias.
 {% endif %}
 
-You may wish to verify the election fingerprint at the bottom of
-the screen when you vote:  {{voter.election.hash}}
+Você pode verificar o fingerprint da eleição na parte inferior
+da tela quando estiver votando: {{voter.election.hash}}
 
 --
-Helios
+Sistema de Votação UFU

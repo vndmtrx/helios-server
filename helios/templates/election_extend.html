@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <h2 class="title">{{election.name}} &mdash; Extend Voting <span style="font-size:0.7em;">[<a href="{% url "election@view" election.uuid %}">cancel</a>]</span></h2>
+  <h2 class="title">{{election.name}} &mdash; Estender votação <span style="font-size:0.7em;">[<a href="{% url "election@view" election.uuid %}">cancelar</a>]</span></h2>
   
   <form class="prettyform" action="" method="POST" id="edit_election_form">
     <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
@@ -10,7 +10,7 @@
      {{election_form.as_table}}
      </table>
   <div>
-  <label for="">&nbsp;</label><input type="submit" value="Extend Voting" id="update_button" />
+  <label for="">&nbsp;</label><input type="submit" value="Estender votação" id="update_button" />
   </div>
   </form>
 
