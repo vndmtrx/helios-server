@@ -1,30 +1,30 @@
 {% extends TEMPLATE_BASE %}
 
-{% block title %}Compute Encryted Tally for {{election.name}}{% endblock %}
+{% block title %}Realizar apuração para {{election.name}}{% endblock %}
 
 {% block content %}
-  <h2 class="title">Compute Tally for Election: {{election.name}}</h2>
+  <h2 class="title">Realizar apuração para eleição: {{election.name}}</h2>
 
 <div id="instructions">
 {% if election.num_cast_votes %}
 <p>
-    You are about to compute the encrypted tally for election <b>{{election.name}}</b>.
+    Você está prestes a realizar a apuração criptografada para  <b>{{election.name}}</b>.
 </p>
 
 <p>
-    Once you do this, voters will no longer be able to cast a ballot.
+    Uma vez encerrada, eleitores não serão capazes de votar.
 </p>
 
-<form method="post" action="" onsubmit="alert('ok, tally has begun')" class="pretty">
+<form method="post" action="" onsubmit="alert('ok, apuração começou')" class="pretty">
 <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
     
-<input class="button" type="submit" value="compute encrypted tally!" />
-<button onclick="document.location='{% url "election@view" election.uuid %}'; return false;">never mind</button>
+<input class="button" type="submit" value="iniciar apuração!" />
+<button onclick="document.location='{% url "election@view" election.uuid %}'; return false;">deixa pra lá</button>
 </form>
 {% else %}
 <p>
-No votes have been cast in this election. At least one vote must be cast before you compute the tally.<br /><br />
-<a href="{% url "election@view" election.uuid %}">back to election</a>
+Nenhum voto foi submetido nesta eleição. Pelo menos um voto deve ser submetido antes de realizar a apuração.<br /><br />
+<a href="{% url "election@view" election.uuid %}">voltar para a eleição</a>
 </p>
 {% endif %}
 </div>

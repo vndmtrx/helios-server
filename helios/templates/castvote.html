@@ -2,10 +2,10 @@
 
 {% block title %}{{cast_vote.vote_tinyhash}} &mdash; {{election.name}}{% endblock %}
 {% block content %}
-<h2 class="title">Cast Vote {{cast_vote.vote_tinyhash}}</h2>
-cast in <a href="{% url "election@view" election.uuid %}">{{election.name}}</a><br />
+<h2 class="title">Votar {{cast_vote.vote_tinyhash}}</h2>
+votar em <a href="{% url "election@view" election.uuid %}">{{election.name}}</a><br />
 Fingerprint: <tt>{{cast_vote.vote_hash}}</tt><br />
-by <b><u>
+por <b><u>
 {% if the_voter.alias %}
 {{the_voter.alias}}
 {% else %}
@@ -13,7 +13,7 @@ by <b><u>
 {% endif %}
 </u></b>
 <br /><br />
-<a href="#" onclick="$('#castvote_content').slideToggle(250); return false;">details</a><br /><br />
+<a href="#" onclick="$('#castvote_content').slideToggle(250); return false;">detalhes</a><br /><br />
 <div style="display:none;" id="castvote_content">
 <textarea cols="100" rows="10">
 {{vote_content}}

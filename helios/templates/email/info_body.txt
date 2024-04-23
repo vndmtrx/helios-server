@@ -1,6 +1,6 @@
-Dear {{voter.name}},
+Caro(a) {{voter.name}},
 
 {{custom_message|safe}}
 
 --
-Helios
+Sistema de Votação UFU

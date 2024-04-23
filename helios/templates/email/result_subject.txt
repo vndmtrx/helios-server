@@ -1,1 +1,1 @@
-Tally Released - {{custom_subject|safe}}
+Resultado Liberado - {{custom_subject|safe}}
