@@ -1,17 +1,17 @@
 {% extends TEMPLATE_BASE %}
 
 {% block content %}
-  <h2 class="title">{{election.name}} &mdash; Search Voters for '{{search_term}}' <span style="font-size:0.7em;">[<a href="{% url "election@view" election.uuid %}">back to election</a>]</span></h2>
+  <h2 class="title">{{election.name}} &mdash; Buscar Eleitores por '{{search_term}}' <span style="font-size:0.7em;">[<a href="{% url "election@view" election.uuid %}">voltar para a eleição</a>]</span></h2>
 
 {% if voter %}
-Voter Found: {{voter.name}} ({{voter.voter_id}})<br /><br />
+Eleitor Encontrado: {{voter.name}} ({{voter.voter_id}})<br /><br />
 {% if election.frozen_at %}
-<a href="{% url "election@voters@email" election.uuid %}?voter_id={{voter.voter_id}}">email this voter</a>
+<a href="{% url "election@voters@email" election.uuid %}?voter_id={{voter.voter_id}}">enviar email para esse eleitor</a>
 {% else %}
-once this election is frozen, you'll be able to email this voter.
+Quando essa eleição for congelada, você estará apto a enviar email para esse eleitor.
 {% endif %}
 {% else %}
-<em>no such voter found</em>
+<em>eleitor não encontrado</em>
 {% endif %}
 
 {% endblock %}
