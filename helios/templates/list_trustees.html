@@ -1,31 +1,38 @@
 {% extends "helios/templates/cryptobase.html" %}
 
-{% block title %}Trustees for {{election.name}}{% endblock %}
+{% block title %}Apuradores para {{election.name}}{% endblock %}
 
 {% block content %}
-  <h3 class="title">{{election.name}} &mdash; Trustees <span style="font-size:0.7em;">[<a href="{% url "election@view" election.uuid %}">back to election</a>]</span></h3>
+  <h3 class="title">{{election.name}} &mdash; Apuradores <span style="font-size:0.7em;">[<a href="{% url "election@view" election.uuid %}">voltar para a eleição</a>]</span></h3>
 
 <p>
-    Trustees are responsible for decrypting the election result.<br />
-    Each trustee generates a keypair and submits the public portion to Helios.<br />
-    When it's time to decrypt, each trustee needs to provide their secret key.
+  A urna só poderá ser aberta para a eleição depois que todos os 
+  apuradores cadastrados entrarem na interface de apuração e fornecerem sua 
+  chave privada. ATENÇÃO: Se um apurador perder sua chave, a urna não poderá 
+  ser aberta e todos os votos serão perdidos. <br><br>
+  ATENÇÃO: Após adicionar um apurador, você deve obrigatoriamente clicar no 
+  botão "Enviar e-mail" para que o apurador receba o e-mail informando que 
+  deve cadastrar sua chave.
 </p>
 
 {% if not election.frozen_at %}
 
 <p>
-  Helios is automatically your first trustee and will handle its keypair generation and decryption automatically.<br />
-  You may add additional trustees if you want, and you can even remove the Helios trustee.<br />
-  However, we recommend you do this only if you have a solid understanding of the trustee's role.
+  Se você não quiser cadastrar apuradores externos ao sistema, O Helios é 
+  automaticamente seu primeiro apurador e irá tratar da geração de chaves e 
+  desencriptação automaticamente.<br />
+  Se você cadastrar apuradores adicionais, você pode remover o Helios como 
+  apurador, clicando no botão de excluir da opção "Sistema de Votação Online"
+  na listagem de apuradores abaixo.<br />
 </p>
 
 {% if admin_p %}
 <p>
-    [ <a onclick="return(confirm('Adding your own trustee requires a good bit more work to tally the election.\nYou will need to have trustees generate keypairs and safeguard their secret key.\n\nIf you are not sure what that means, we strongly recommend\nclicking Cancel and letting Helios tally the election for you.'));" href="{% url "election@trustees@new" election.uuid %}">add a trustee</a> ]
+    [ <a onclick="return(confirm('Adicionar seu próprio administrador requer um pouco mais de trabalho para contabilizar a eleição.\nVocê precisará fazer com que os administradores gerem pares de chaves e protejam suas chaves secretas.\n\nSe você não tiver certeza do que isso significa, recomendamos fortemente\nclicar em Cancelar e deixar Helios compute a eleição para você.'));" href="{% url "election@trustees@new" election.uuid %}">adicionar um apurador</a> ]
 </p>
 {% if not election.has_helios_trustee %}
 <p>
-    <a href="{% url "election@trustees@add-helios" election.uuid %}">add Helios as a trustee</a>
+    <a href="{% url "election@trustees@add-helios" election.uuid %}">adicionar o sistema de votação (Helios) como apurador</a>
 </p>
 {% endif %}
 {% endif %}
@@ -39,28 +46,28 @@
 <h5> Trustee #{{forloop.counter}}: {{t.name}} 
 {% if admin_p %}
 {% if t.secret_key %}
-{% if not election.frozen_at %}[<a onclick="return confirm('Are you sure you want to remove Helios as a trustee?');" href="{% url "election@trustees@delete" election.uuid %}?uuid={{t.uuid}}">x</a>]{% endif %}
+{% if not election.frozen_at %}[<a onclick="return confirm('Tem certeza de que deseja remover Helios do cargo de apurador?');" href="{% url "election@trustees@delete" election.uuid %}?uuid={{t.uuid}}">x</a>]{% endif %}
 {% else %}
 ({{t.email}})
-{% if not election.frozen_at %}[<a onclick="return confirm('Are you sure you want to remove this Trustee?');" href="{% url "election@trustees@delete" election.uuid %}?uuid={{t.uuid}}">x</a>]{% endif %}
-[<a onclick="return confirm('Are you sure you want to send this trustee his/her admin URL?');" href="{% url "election@trustee@send-url" election.uuid t.uuid %}">send login</a>]
+{% if not election.frozen_at %}[<a onclick="return confirm('Tem certeza de que deseja remover este apurador?');" href="{% url "election@trustees@delete" election.uuid %}?uuid={{t.uuid}}">x</a>]{% endif %}
+[<a onclick="return confirm('Tem certeza de que deseja enviar a este apurador a sua URL de apurador?');" href="{% url "election@trustee@send-url" election.uuid t.uuid %}">enviar login</a>]
 {% endif %}
 {% endif %}
 </h5>
 
 <p>
 {% if t.public_key_hash %}
-  Public Key Fingerprint: <tt style="font-size:1.5em;">{{t.public_key_hash}}</tt>
+Código de Identificação da Chave Pública: <tt style="font-size:1.5em;">{{t.public_key_hash}}</tt>
 {% else %}
-No public key uploaded yet.
+Nenhuma chave pública carregada ainda.
 {% endif %}
 </p>
 
 {% if election.encrypted_tally %}
 {% if t.decryption_factors %}
-<b>tally recorded for this trustee.</b>
+<b>apuração registrada para esse apurador.</b>
 {% else %}
-<em>waiting for this trustee's tally</em>
+<em>esperando pela apuração deste apurador</em>
 {% endif %}
 {% endif %}
 </li>
