@@ -1,23 +1,23 @@
 {% extends TEMPLATE_BASE %}
 
 {% block content %}
-  <h2 class="title">{{ election.name }} – Register</h2>
+  <h2 class="title">{{ election.name }} &mdash; Registrar</h2>
 
 {% if user %}
 <p>
-    You are currently logged in as {{user.user_id}} [{{user.user_type}}]
+    You are currently logged in asVocê está conectado atualmente como {{user.user_id}} [{{user.user_type}}]
 </p>
 {% if voter %}
 <p>
-    You are currently registered for this election.
+    Atualmente você está registrado para essa eleição.
 </p>
 {% else %}
 <p>
-    You are <em>not</em> registered for this election.
+    Você <em>não está</em> registrado para essa eleição.
 </p>
 
 <form method="post" action="{% url "election@register" election.uuid %}">
-<input type="submit" value="register!" />
+<input type="submit" value="registrar!" />
 </form>
 {% endif %}
 
