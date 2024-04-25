@@ -15,7 +15,7 @@
 
 {% if admin_p and not election.frozen_at %}
 {% if election.private_p %}
-<em>A sua eleição está marcada como privada, o que significa que você não pode abrir registro mais amplo</em>.<br />
+<em>A sua eleição está marcada como privada, o que significa que você não pode abrir para registro</em>.<br /><br />
 {% else %}
 <form method="post" action="{% url "election@voters@eligibility" election.uuid %}">
 <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
