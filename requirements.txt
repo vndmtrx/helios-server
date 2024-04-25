@@ -1,3 +1,6 @@
+setuptools~=57.5.0
+wheel~=0.43.0
+
 Django==2.2.24
 django_webtest>=1.9.7
 
