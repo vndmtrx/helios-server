@@ -14,7 +14,7 @@ class ElectionForm(forms.Form):
   short_name = forms.SlugField(label="Nome curto", max_length=40, help_text='Digite sem espaços, fará parte do URL da sua eleição, por ex: meu-clube-2024')
   name = forms.CharField(label="Nome longo", max_length=100, widget=forms.TextInput(attrs={'size':60}), help_text='Nome para sua eleição, por ex: Eleição do Meu Clube 2024')
   description = forms.CharField(label="Descrição", max_length=4000, widget=forms.Textarea(attrs={'cols': 70, 'wrap': 'soft'}), required=False)
-  election_type = forms.ChoiceField(label="Tipo da eleição", label="type", choices = Election.ELECTION_TYPES)
+  election_type = forms.ChoiceField(label="Tipo da eleição", choices = Election.ELECTION_TYPES)
   use_voter_aliases = forms.BooleanField(label="Pseudônimos de eleitor?", required=False, initial=False, help_text='Se selecionado, as identidades dos eleitores serão substituídas por pseudônimos, por exemplo. "V12", no centro de rastreamento de votos')
   #use_advanced_audit_features = forms.BooleanField(required=False, initial=True, help_text='disable this only if you want a simple election with reduced security but a simpler user interface')
   randomize_answer_order = forms.BooleanField(label="Opções em ordem aleatória?", required=False, initial=False, help_text='Habilite isto se quiser que as opções apareçam em ordem aleatória para cada eleitor')
