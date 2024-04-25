@@ -11,24 +11,24 @@
 <div class="row">&nbsp;</div>
 <div class="large-9 columns">
   {% if settings.MASTER_HELIOS %}
-<p>Helios offers <b>verifiable online elections</b>.</p>
+<p>Helios oferece <b>eleições online verificáveis</b>.</p>
 
-<p>We believe democracy is important, whether it’s your book club, parent-teacher association, student government, workers’ union, or state. So we’ve made truly verifiable elections as easy as everything else on the Web.</p>
+<p>Acreditamos que a democracia é importante, seja no clube do livro, na associação de pais e professores, no governo estudantil, no sindicato dos trabalhadores ou no estado. Por isso, tornamos as eleições verdadeiramente verificáveis tão fáceis quanto tudo o mais na Web.</p>
 
 <p>
-Helios elections are:
+As eleições de Helios são:
 <ul class="disc">
-<li><b>private</b>: no one knows how you voted.</li>
-<li><b>verifiable</b>: each voter gets a tracking number.</li>
-<li><b>proven</b>: Helios is open-source, vetted by top-tier experts, and in use by major organizations.</li>
+<li><b>privadas</b>: ninguém sabe como você votou.</li>
+<li><b>verificáveis</b>: cada eleitor recebe um número de rastreamento.</li>
+<li><b>comprovadas</b>: o Helios é de código aberto, avaliado por especialistas de primeira linha e usado por grandes organizações.</li>
 </ul>
 
 <p>
-More than <b>2,000,000 votes</b> have been cast using Helios.
+Mais de <b>2.000.000 de votos</b> foram dados usando o Helios.
 </p>
 
 {% if create_p %}
-<a class="button" href="{% url "elections@new" %}">create an election</a>
+<a class="button" href="{% url "elections@new" %}">criar uma eleição</a>
 {% endif %}
 
   {% else %}
@@ -40,13 +40,13 @@ More than <b>2,000,000 votes</b> have been cast using Helios.
   <p>
     {% for election in elections %}
     <div class="panel">
-      <a style="font-size: 1.4em;" href="{% url "shortcut@election" election.short_name %}">{{election.name}}</a>{% if settings.SHOW_USER_INFO %}<br /> by {{election.admin.display_html_small|safe}}{% endif %}
+      <a style="font-size: 1.4em;" href="{% url "shortcut@election" election.short_name %}">{{election.name}}</a>{% if settings.SHOW_USER_INFO %}<br /> por {{election.admin.display_html_small|safe}}{% endif %}
     </div>
     <br />
     {% endfor %}
   </p>
   {% else %}
-  <h4>no featured elections at the moment</h4>
+  <h4>nenhuma eleição em destaque no momento</h4>
   {% endif %}
 {% endif %}
   
@@ -58,8 +58,8 @@ More than <b>2,000,000 votes</b> have been cast using Helios.
 {% if user %}
 <!--<div class="row right">{{user.display_html_big|safe}}</div>-->
 {% if create_p %}
-<a class="small button" href="{% url "elections@new" %}">create election</a>
-<h5 class="subheader">Administration</h5>
+<a class="small button" href="{% url "elections@new" %}">criar eleição</a>
+<h5 class="subheader">Administração</h5>
 {% if elections_administered %}
 <ul>
 {% for election in elections_administered %}
@@ -67,15 +67,15 @@ More than <b>2,000,000 votes</b> have been cast using Helios.
 {% endfor %}
 </ul>
 {% else %}
-<em>none yet</em>
+<em>nenhuma ainda</em>
 {% endif %}
 <div class="row right">
-<a class="tiny button" href="{% url "elections@administered" %}">see all</a>
+<a class="tiny button" href="{% url "elections@administered" %}">ver tudo</a>
 </div>
 <div class="row"></div>
 {% endif %}
 
-<h5 class="subheader">Recent Votes</h5>
+<h5 class="subheader">Votações recentes</h5>
 {% if elections_voted %}
 <ul>
 {% for election in elections_voted %}
@@ -83,17 +83,17 @@ More than <b>2,000,000 votes</b> have been cast using Helios.
 {% endfor %}
 </ul>
 {% else %}
-<em>none yet</em>
+<em>nenhuma ainda</em>
 {% endif %}
-<div class="row right"><a class="tiny button" href="{% url "elections@voted" %}">see all</a></div>
+<div class="row right"><a class="tiny button" href="{% url "elections@voted" %}">ver tudo</a></div>
 <div class="row"></div>
 {% else %}
 {% if settings.SHOW_LOGIN_OPTIONS %}
-<h5>Log In to Start Voting</h5>
+<h5>Faça login para começar a votar</h5>
 {{login_box|safe}}
 {% else %}
 <p>
-Select an election to start voting. You will be asked for your voting credentials after you complete a ballot.
+Selecione uma eleição para começar a votar. Serão solicitadas suas credenciais de voto após concluir a votação.
 </p>
 {% endif %}
 {% endif %}
