@@ -27,7 +27,7 @@ class ElectionForm(forms.Form):
   # times
   voting_starts_at = SplitDateTimeField(label="Início da votação", help_text = 'Data e hora UTC em que a votação começa',
                                    widget=SplitSelectDateTimeWidget, required=False)
-  voting_ends_at = SplitDateTimeField(hlabel="Fim da votação", help_text = 'Data e hora UTC em que a votação termina',
+  voting_ends_at = SplitDateTimeField(label="Fim da votação", help_text = 'Data e hora UTC em que a votação termina',
                                    widget=SplitSelectDateTimeWidget, required=False)
 
 class ElectionTimeExtensionForm(forms.Form):
