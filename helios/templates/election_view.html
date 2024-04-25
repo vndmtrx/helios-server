@@ -57,7 +57,7 @@ esta {{election.election_type}} <u>não está</u> destacada na página inicial.
 {% endif %}
 
 <p align="center" style="font-size: 1.5em;">
-<a href="{% url "election@questions" election.uuid %}">questions ({% if election.questions %}{{election.questions|length}}{% else %}0{% endif %})</a>
+<a href="{% url "election@questions" election.uuid %}">questões ({% if election.questions %}{{election.questions|length}}{% else %}0{% endif %})</a>
 &nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="{% url "election@voters@list-pretty" election.uuid %}">eleitores &amp; cédulas</a>
 &nbsp;&nbsp;|&nbsp;&nbsp;
