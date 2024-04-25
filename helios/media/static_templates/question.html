@@ -4,12 +4,12 @@
 <h4>
 {#if $T.admin_p}[
 {#if $T.question$index > 0}<a href="javascript:question_move_up({$T.question$index});">^</a>]&nbsp;[{#/if}
-<a onclick="return confirm('Are you sure you want to remove this question?');" href="javascript:question_remove({$T.question$index})">x</a>] [<a href="javascript:question_edit({$T.question$index})">edit</a>] {#/if}{$T.question$index + 1}. {$T.question.question} ({$T.question.choice_type}, select between {$T.question.min} and {#if $T.question.max != null}{$T.question.max}{#else}unlimited{#/if} answers, result type {$T.question.result_type}{#if $T.question.randomize_answer_order}, random answer order{#/if}.)</h4>
+<a onclick="return confirm('Tem certeza de que deseja remover esta pergunta?');" href="javascript:question_remove({$T.question$index})">x</a>] [<a href="javascript:question_edit({$T.question$index})">edit</a>] {#/if}{$T.question$index + 1}. {$T.question.question} ({$T.question.choice_type}, selecione entre as respostas {$T.question.min} e {#if $T.question.max != null}{$T.question.max}{#else}unlimited{#/if}, tipo de resultado {$T.question.result_type}{#if $T.question.randomize_answer_order}, ordem de resposta aleatória{#/if}.)</h4>
 <ul>
 {#foreach $T.question.answers as answer}
 <li> {$T.answer}
 {#if $T.question.answer_urls[$T.answer$index]}
-  [<a target="_new" href="{$T.question.answer_urls[$T.answer$index]}">more</a>]
+  [<a target="_new" href="{$T.question.answer_urls[$T.answer$index]}">mais</a>]
 {#/if}
 </li>
 {#/for}
@@ -25,7 +25,7 @@
   </select>
 -->
 <input type="hidden" name="choice_type" value="approval" />
-<b>{$T.question$index + 1}.</b> &nbsp;&nbsp;&nbsp;Select between &nbsp;&nbsp;
+<b>{$T.question$index + 1}.</b> &nbsp;&nbsp;&nbsp;Selecione entre as respostas &nbsp;&nbsp;
 <select name="min">
     <option selected>0</option>
 {#for option_index = 1 to 20}
@@ -33,7 +33,7 @@
 {#/for}
 </select>
 
-&nbsp;&nbsp; and  &nbsp;&nbsp;
+&nbsp;&nbsp; e &nbsp;&nbsp;
 
 <select name="max">
     <option>0</option>
@@ -45,44 +45,43 @@
 </select>
 
 &nbsp;&nbsp;
-answers.
 
 &nbsp;&nbsp;
 &nbsp;&nbsp;
-Result Type:&nbsp;
+Tipo do resultado:&nbsp;
 <select name="result_type">
-    <option selected>absolute</option>
-    <option>relative</option>
+    <option selected>absoluto</option>
+    <option>relativo</option>
 </select>
 
 &nbsp;&nbsp;
 &nbsp;&nbsp;
-Random Answer Order:&nbsp;
+Ordem de resposta aleatória:&nbsp;
 <select name="randomize_answer_order">
-  <option selected value="0">no</option>
-  <option value="1">yes</option>
+  <option selected value="0">não</option>
+  <option value="1">sim</option>
 </select>
 </p>
 
 <table id="answer_table_{$T.question$index}">
   <tbody>
-    <tr><th colspan="2">Question:</th><td><input type="text" name="question" size="70" /></td></tr>
+    <tr><th colspan="2">Pergunta:</th><td><input type="text" name="question" size="70" /></td></tr>
     <tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr>
   </tbody>
   <tfoot>
-    <tr><th colspan="2"></th><th><a href="javascript:add_answers($('#answer_table_{$T.question$index}'),5)">add 5 more answers</a></th></tr>
-    <tr><td colspan="3"><input type="submit" value="update question" /> &nbsp; <input type="reset" value="cancel" onclick="question_edit_cancel({$T.question$index});" /></td></tr>
+    <tr><th colspan="2"></th><th><a href="javascript:add_answers($('#answer_table_{$T.question$index}'),5)">adicione mais 5 respostas</a></th></tr>
+    <tr><td colspan="3"><input type="submit" value="atualizar pergunta" /> &nbsp; <input type="reset" value="cancelar" onclick="question_edit_cancel({$T.question$index});" /></td></tr>
   </tfoot>
 
 </table>
 </form>
 </div>
 {#else}
-no questions yet
+ainda não há perguntas
 {#/for}
 
 {#if $T.admin_p}
-<h4>Add a Question:</h4>
+<h4>Adicione uma pergunta:</h4>
 <form id="question_form" onsubmit="question_add(this); return false;" action="#">
 <p>
 <!--
@@ -92,7 +91,7 @@ no questions yet
   </select>
 -->
 <input type="hidden" name="choice_type" value="approval" />
-&nbsp;&nbsp;&nbsp;Select between &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;Selecione entre as respostas &nbsp;&nbsp;
 <select name="min">
     <option selected>0</option>
 {#for option_index = 1 to 20}
@@ -100,7 +99,7 @@ no questions yet
 {#/for}
 </select>
 
-&nbsp;&nbsp; and  &nbsp;&nbsp;
+&nbsp;&nbsp; e &nbsp;&nbsp;
 
 <select name="max">
     <option>0</option>
@@ -108,26 +107,25 @@ no questions yet
 {#for option_index = 2 to 50}
     <option>{$T.option_index}</option>
 {#/for}
-    <option value="">- (approval)</option>
+    <option value="">- (aprovação)</option>
 </select>
 
 &nbsp;&nbsp;
-answers.
 
 &nbsp;&nbsp;
 &nbsp;&nbsp;
-Result Type:&nbsp;
+Tipo de resultado:&nbsp;
 <select name="result_type">
-    <option selected>absolute</option>
-    <option>relative</option>
+    <option selected>absoluto</option>
+    <option>relativo</option>
 </select>
 
 &nbsp;&nbsp;
 &nbsp;&nbsp;
-Random Answer Order:&nbsp;
+Ordem de resposta aleatória:&nbsp;
 <select name="randomize_answer_order">
-  <option selected value="0">no</option>
-  <option value="1">yes</option>
+  <option selected value="0">não</option>
+  <option value="1">sim</option>
 </select>
 </p>
 
@@ -135,12 +133,12 @@ Random Answer Order:&nbsp;
 
 <table id="answer_table" style="width:100%;">
   <tbody>
-    <tr><th colspan="2">Question:</th><td><input type="text" name="question" size="70" /></td></tr>
+    <tr><th colspan="2">Pergunta:</th><td><input type="text" name="question" size="70" /></td></tr>
     <tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr>
   </tbody>
   <tfoot>
-    <tr><th colspan="2"></th><th><a href="javascript:add_answers($('#answer_table'), 5)">add 5 more answers</a></th></tr>
-    <tr><td colspan="2"><input type="submit" value="add question" /></td></tr>
+    <tr><th colspan="2"></th><th><a href="javascript:add_answers($('#answer_table'), 5)">adicione mais 5 respostas</a></th></tr>
+    <tr><td colspan="2"><input type="submit" value="adicionar pergunta" /></td></tr>
   </tfoot>
 
 </table>

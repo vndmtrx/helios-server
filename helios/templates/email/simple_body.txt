@@ -10,5 +10,5 @@ URL da eleição:  {{election_vote_url}}
 Seu ID de eleitor: {{voter.voter_login_id}}
 Sua senha: {{voter.voter_password}}
 {% else %}
-Faça o log in com sua conta {{voter.voter_type}}.
+Faça o login com sua conta {{voter.voter_type}}.
 {% endifequal %}
