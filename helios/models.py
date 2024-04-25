@@ -380,27 +380,27 @@ class Election(HeliosModel):
     if self.questions is None or len(self.questions) == 0:
       issues.append(
         {'type': 'questions',
-         'action': "add questions to the ballot"}
+         'action': "adicionar perguntas à votação"}
         )
 
     trustees = Trustee.get_by_election(self)
     if len(trustees) == 0:
       issues.append({
           'type': 'trustees',
-          'action': "add at least one trustee"
+          'action': "adicione pelo menos um apurador"
           })
 
     for t in trustees:
       if t.public_key is None:
         issues.append({
             'type': 'trustee keypairs',
-            'action': 'have trustee %s generate a keypair' % t.name
+            'action': 'faça com que o apurador %s gere um par de chaves' % t.name
             })
 
     if self.voter_set.count() == 0 and not self.openreg:
       issues.append({
           "type" : "voters",
-          "action" : 'enter your voter list (or open registration to the public)'
+          "action" : 'insira sua lista de eleitores (ou abra registro ao público)'
           })
 
     return issues
@@ -525,7 +525,7 @@ class Election(HeliosModel):
     election is frozen when the voter registration, questions, and trustees are finalized
     """
     if len(self.issues_before_freeze) > 0:
-      raise Exception("cannot freeze an election that has issues")
+      raise Exception("não é possível congelar uma eleição que tem problemas")
 
     self.frozen_at = datetime.datetime.utcnow()
 
@@ -684,9 +684,9 @@ class ElectionLog(models.Model):
   a log of events for an election
   """
 
-  FROZEN = "frozen"
-  VOTER_FILE_ADDED = "voter file added"
-  DECRYPTIONS_COMBINED = "decryptions combined"
+  FROZEN = "congelada"
+  VOTER_FILE_ADDED = "arquivo de eleitor adicionado"
+  DECRYPTIONS_COMBINED = "descriptografias combinadas"
 
   election = models.ForeignKey(Election, on_delete=models.CASCADE)
   log = models.CharField(max_length=500)
@@ -724,7 +724,7 @@ class VoterFile(models.Model):
       elif isinstance(self.voter_file_content, bytes):
         content = self.voter_file_content.decode('utf-8')
       else:
-        raise TypeError("voter_file_content is of type {0} instead of str or bytes"
+        raise TypeError("voter_file_content é do tipo {0} em vez de str ou bytes"
                         .format(str(type(self.voter_file_content))))
 
       # now we have to handle non-universal-newline stuff
@@ -747,7 +747,7 @@ class VoterFile(models.Model):
       voter_id = voter_fields[1].strip()
 
       if not voter_type in AUTH_SYSTEMS:
-        raise Exception("invalid voter type '%s' for voter id '%s', available voter types are %s" % (voter_type, voter_id, ",".join(AUTH_SYSTEMS.keys())))
+        raise Exception("tipo de eleitor inválido '%s' para o ID de eleitor '%s', os tipos de eleitor disponíveis são %s" % (voter_type, voter_id, ",".join(AUTH_SYSTEMS.keys())))
 
       # default to having email be the same as voter_id
       voter_email = voter_id
@@ -755,7 +755,7 @@ class VoterFile(models.Model):
         # but if it's supplied, it will be the 3rd field.
         voter_email = voter_fields[2].strip()
       if voter_type == "password" and not validate_email(voter_email):
-        raise Exception("invalid voter email '%s' for voter id '%s'" % (voter_email, voter_id))
+        raise Exception("e-mail de eleitor inválido '%s' para o ID de eleitor '%s'" % (voter_email, voter_id))
 
       # same thing for voter display name.
       voter_name = voter_email
@@ -1081,7 +1081,7 @@ class CastVote(HeliosModel):
   def verify_and_store(self):
     # if it's quarantined, don't let this go through
     if self.is_quarantined:
-      raise Exception("cast vote is quarantined, verification and storage is delayed.")
+      raise Exception("a votação está em quarentena, a verificação e o armazenamento serão atrasados.")
 
     result = self.vote.verify(self.voter.election)
 
@@ -1106,7 +1106,7 @@ class CastVote(HeliosModel):
 
     # check the election
     if self.vote.election_uuid != election.uuid:
-      issues.append("the vote's election UUID does not match the election for which this vote is being cast")
+      issues.append("o UUID da eleição do voto não corresponde à eleição para a qual este voto está sendo emitido")
 
     return issues
 
