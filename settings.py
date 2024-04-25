@@ -205,8 +205,8 @@ VOTER_UPLOAD_REL_PATH = "voters/%Y/%m/%d"
 
 
 # Change your email settings
-DEFAULT_FROM_EMAIL = get_from_env('DEFAULT_FROM_EMAIL', 'ben@adida.net')
-DEFAULT_FROM_NAME = get_from_env('DEFAULT_FROM_NAME', 'Ben for Helios')
+DEFAULT_FROM_EMAIL = get_from_env('DEFAULT_FROM_EMAIL', 'vndmtrx@duck.com')
+DEFAULT_FROM_NAME = get_from_env('DEFAULT_FROM_NAME', 'Eduardo N.S.R.')
 SERVER_EMAIL = '%s <%s>' % (DEFAULT_FROM_NAME, DEFAULT_FROM_EMAIL)
 
 LOGIN_URL = '/auth/'
@@ -222,7 +222,7 @@ URL_HOST = get_from_env("URL_HOST", "http://localhost:8000").rstrip("/")
 SECURE_URL_HOST = get_from_env("SECURE_URL_HOST", URL_HOST).rstrip("/")
 
 # election stuff
-SITE_TITLE = get_from_env('SITE_TITLE', 'Helios Voting')
+SITE_TITLE = get_from_env('SITE_TITLE', 'Plataforma de Eleições Helios')
 MAIN_LOGO_URL = get_from_env('MAIN_LOGO_URL', '/static/logo.png')
 ALLOW_ELECTION_INFO_URL = (get_from_env('ALLOW_ELECTION_INFO_URL', '0') == '1')
 
@@ -230,7 +230,7 @@ ALLOW_ELECTION_INFO_URL = (get_from_env('ALLOW_ELECTION_INFO_URL', '0') == '1')
 FOOTER_LINKS = json.loads(get_from_env('FOOTER_LINKS', '[]'))
 FOOTER_LOGO_URL = get_from_env('FOOTER_LOGO_URL', None)
 
-WELCOME_MESSAGE = get_from_env('WELCOME_MESSAGE', "This is the default message")
+WELCOME_MESSAGE = get_from_env('WELCOME_MESSAGE', "Seja bem-vindo(a) à plataforma de eleições Helios!<br />Vote com consciência e contribua para a democracia acadêmica.")
 
 HELP_EMAIL_ADDRESS = get_from_env('HELP_EMAIL_ADDRESS', 'help@heliosvoting.org')
 
