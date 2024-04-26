@@ -2,9 +2,9 @@
 <div style="text-align:center; width: 100%; padding: 3px 5px 3px 5px;">
 <span>
   {#if $T.election.BOGUS_P}
-  The public key for this election is not yet ready. This election is in preview mode only.
+  A chave pública desta eleição ainda não está pronta. Esta eleição está no modo pré-visualização..
   {#else}
-  Election Fingerprint: <span id="election_hash" style="font-weight:bold;">{$T.election.hash}</span>
+  Código de Identificação da Eleição: <span id="election_hash" style="font-weight:bold;">{$T.election.hash}</span>
   {#/if}
 </span>
 </div>

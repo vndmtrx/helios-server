@@ -1,24 +1,24 @@
 
-<h3>Submit Your Encrypted Ballot</h3>
+<h3>Envie sua cédula criptografada</h3>
 
 <p>
-All information, other than your encrypted ballot,<br />
-has been removed from memory.
+  Todas as informações, exceto sua cédula criptografada,<br />
+  foram removidas da memória.
 </p>
 
 <p>
-As a reminder, your ballot tracking number is:<br />
+Como lembrete, o seu número de rastreamento de votação é:<br />
 <b><tt style="font-size: 16pt;">{$T.encrypted_vote_hash}</tt></b>
 </p>
 
 <p>
-According to the election definition file, this ballot will be submitted to:
+  De acordo com o arquivo de definição eleitoral, esta cédula será submetida ao:
 </p>
 
 <p><b><tt style="font-size:1.3em;">{$T.cast_url}</tt></b></p>
 
 <p>
-    where you will log in to validate your eligibility to vote.
+  onde você fará login para validar sua elegibilidade para votar.
 </p>
 
 <form method="POST" onsubmit="BOOTH.do_done();" action="{$T.cast_url}" id="send_ballot_form" class="prettyform">
