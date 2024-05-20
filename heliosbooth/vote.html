@@ -31,8 +31,8 @@
 <body>
 <div id="wrapper">
 <div id="banner" class="edge">
-  <div style="text-align:center; width: 100%;">Helios Voting Booth
-      <div style="float: right; margin-right: 10px; font-size: 0.8em;"><span><a href="javascript:BOOTH.exit();">exit</a></span></div>
+  <div style="text-align:center; width: 100%;">Cabine de Votação Helios
+      <div style="float: right; margin-right: 10px; font-size: 0.8em;"><span><a href="javascript:BOOTH.exit();">sair</a></span></div>
   </div>
 </div>
 <div id="content">
@@ -71,7 +71,7 @@ window.onbeforeunload = function(evt) {
     evt = window.event;
   }
 
-  var message = "If you leave this page with an in-progress ballot, your ballot will be lost.";
+  var message = "Se você sair desta página com uma votação em andamento, sua votação será perdida.";
 
   if (evt) {
     evt.returnValue = message;
@@ -81,7 +81,7 @@ window.onbeforeunload = function(evt) {
 };
 
 BOOTH.exit = function() {
-    if (confirm("Are you sure you want to exit the booth and lose all information about your current ballot?")) {
+    if (confirm("Tem certeza de que deseja sair da cabine e perder todas as informações sobre sua votação atual?")) {
         BOOTH.started_p = false;
         window.location = BOOTH.election.cast_url;
     }
@@ -342,7 +342,7 @@ BOOTH.click_checkbox = function(question_num, answer_num, checked_p) {
 
      // do the warning only if the question allows more than one option, otherwise it's confusing
      if (BOOTH.election.questions[question_num].max > 1) {
-        $('#warning_box').html("Maximum number of options selected.<br />To change your selection, please de-select a current selection first.");
+        $('#warning_box').html("Número máximo de opções selecionadas.<br />Para alterar sua seleção, desmarque primeiro a seleção atual.");
      }
   } else {
      // enable the other checkboxes
@@ -357,7 +357,7 @@ BOOTH.click_checkbox = function(question_num, answer_num, checked_p) {
 };
 
 BOOTH.show_processing_before = function(str_to_execute) {
-    $('#processing_div').html("<h3 align='center'>Processing...</h3>");
+    $('#processing_div').html("<h3 align='center'>Processando...</h3>");
     BOOTH.show($('#processing_div'));
 
     // add a timeout so browsers like Safari actually display the processing message
@@ -561,7 +561,7 @@ BOOTH.audit_ballot = function() {
 
 BOOTH.post_audited_ballot = function() {
   $.post(BOOTH.election_url + "/post-audited-ballot", {'audited_ballot': BOOTH.audit_trail}, function(result) {
-    alert('This audited ballot has been posted.\nRemember, this vote will only be used for auditing and will not be tallied.\nClick "back to voting" and cast a new ballot to make sure your vote counts.');
+    alert('Esta cédula auditada foi publicada.\nLembre-se, este voto será usado apenas para auditoria e não será contabilizada.\nClique em "voltar à votação" e lance uma nova cédula para garantir que seu voto conte.');
   });
 };
 
@@ -591,7 +591,7 @@ BOOTH.cast_ballot = function() {
 };
 
 BOOTH.show_receipt = function() {
-    UTILS.open_window_with_content("Your ballot tracker for " + BOOTH.election.name + ": " + BOOTH.encrypted_ballot_hash);
+    UTILS.open_window_with_content("Seu rastreador de votação para " + BOOTH.election.name + ": " + BOOTH.encrypted_ballot_hash);
 };
 
 BOOTH.do_done = function() {
@@ -603,24 +603,24 @@ BOOTH.do_done = function() {
   <div id="progress_div" style="display:none">
       <table>
           <tr>
-              <td id="progress_1">(1) Select</td>
-              <td id="progress_2">(2) Review</td>
-              <td id="progress_3">(3) Submit</td>
+              <td id="progress_1">(1) Selecione</td>
+              <td id="progress_2">(2) Revise</td>
+              <td id="progress_3">(3) Envie</td>
           </tr>
       </table>
   </div>
   <div id="election_div" class="panel">
-    <h3>Checking capabilities and loading election booth...</h3>
-    <div align="center"><img src="loading.gif" /><br />This may take up to 10 seconds</div>
+    <h3>Verificando capacidades e carregando cabine eleitoral...</h3>
+    <div align="center"><img src="loading.gif" /><br />Isso pode levar até 10 segundos</div>
   </div>
 
   <div id="error_div" class="panel" style="display: none;">
-    <h3>There's a problem</h3>
+    <h3>Há um problema</h3>
     <p>
-      It appears that your browser does not have Java enabled. Helios needs Java to perform encryption within the browser.
+      Parece que o seu navegador não tem o Java habilitado. Helios precisa de Java para realizar a criptografia no navegador.
     </p>
     <p>
-      You may be able to install Java by visiting <a target="_new" href="http://java.com">java.com</a>.
+      Você pode instalar o Java visitando <a target="_new" href="http://java.com">java.com</a>.
     </p>
   </div>
 
@@ -628,14 +628,14 @@ BOOTH.do_done = function() {
   </div>
 
   <div id="processing_div" class="panel" style="display:none;">
-      <h3 align="center">Processing....</h3>
+      <h3 align="center">Processando....</h3>
   </div>
 
   <div id="encrypting_div" class="panel" style="display:none;">
-      <h3 align="center">Helios is now encrypting your ballot<br />
+      <h3 align="center">Helios agora está criptografando sua cédula<br />
           <img src="encrypting.gif" /> <span style="font-size:0.7em; display:none;" id="percent_done_container">(<span id="percent_done">0</span>%)</span></h3>
 
-      <p align="center"><b>This may take up to two minutes.</b>
+      <p align="center"><b>Isso pode levar até dois minutos.</b>
   </div>
 
   <div id="seal_div" class="panel">

@@ -18,13 +18,13 @@
 
 Você está logado como <u>{{voter.display_html_big|safe}}</u><br /><br />
 
-    <button type="submit" class="large">CAST this ballot</button>
+    <button type="submit" class="large">DEPOSITE este voto</button>
     <span style="font-size:0.8em;"><br />Você pode votar quantas vezes quiser.<br />Apenas o último voto será considerado.</span>
 </form>
 
 <p>
-    <button class="tiny" onclick="if (confirm('Are you sure you want to clear this ballot and NOT cast it?')) {document.location='{% url "election@view" election.uuid %}';}">cancel</button><br />
-    <span style="font-size:0.8em;">Se você cancelar agora. seu voto<em>NÃO</em> será gravado.<br />
+    <button class="tiny" onclick="if (confirm('Tem certeza de que deseja limpar esta cédula e NÃO lançá-la?')) {document.location='{% url "election@view" election.uuid %}';}">cancelar</button><br />
+    <span style="font-size:0.8em;">Se você cancelar agora. seu voto <em>NÃO</em> será gravado.<br />
     Você pode, é claro, reiniciar o processo de votação.</span>
 </p>
 
