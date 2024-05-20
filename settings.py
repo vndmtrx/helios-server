@@ -196,9 +196,9 @@ if ANYMAIL["MAILGUN_API_KEY"]:
 ## HELIOS
 ##
 
-
-MEDIA_ROOT = os.path.join(ROOT_PATH, 'media/')
-STATIC_URL = os.path.join(ROOT_PATH, 'static/')
+STATIC_ROOT = os.path.join('/')
+MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media/')
+STATIC_URL = os.path.join(STATIC_ROOT, 'static/')
 
 # a relative path where voter upload files are stored
 VOTER_UPLOAD_REL_PATH = "voters/%Y/%m/%d"
