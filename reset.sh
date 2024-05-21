@@ -45,7 +45,7 @@ from helios_auth.models import User as HeliosUser
 HeliosUser.objects.create(
     user_type='password', 
     name='Eduardo R.', 
-    user_id='ens.rolim@gmail.com', 
+    user_id='ens.rolim@ufu.br', 
     info={
         'name':'Eduardo R.', 
         'password':'eduardo123'
