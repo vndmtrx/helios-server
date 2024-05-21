@@ -12,20 +12,20 @@ function show_waiting() {
   $('#waiting_div').show();
 }
 </script>
-<h1>Confirm your Vote</h1>
+<h1>Confirme seu voto</h1>
 
 {% if error %}
 <p style="color: red;">{{error}}</p>
 {% endif %}
 
-<h3>Your Ballot</h3>
+<h3>Sua votação</h3>
 
 <p style="font-size:1.6em;">
     <tt>{{vote_fingerprint}}</tt>
 </p>
 
 <div id="cast_div">
-<h3>Cast Your Ballot with your Credentials</h3>
+<h3>Vote com suas credenciais</h3>
 
 <form method="post" onsubmit="show_waiting();" action="">
     <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
@@ -38,12 +38,12 @@ function show_waiting() {
 </form>
 
 <p>
-    Forgot your password? <a href="{% url "auth@password@forgotten" %}?return_url={% url "election@cast-confirm" %}">Have it emailed to you</a>.<br />(don't worry, we won't forget your vote).
+    Esqueceu sua senha? <a href="{% url "auth@password@forgotten" %}?return_url={% url "election@cast-confirm" %}">Envie a senha</a>.<br />(não se preocupe, não esqueceremos seu voto).
 </p>
 </div>
 
 <div id="waiting_div" align="center">
-  Verifying and Casting your ballot<br />
+  Verificando e lançando seu voto<br />
   <img src="/static/helios/loading.gif" />
 </div>
 

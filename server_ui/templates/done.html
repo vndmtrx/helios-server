@@ -5,13 +5,13 @@
 <h1>Your Vote was Cast</h1>
 
 <p>
-    A vote was successfully cast for <b>{{voter.voter_id}}</b>, with vote fingerprint:
+    Uma votação foi lançada com sucesso para <b>{{voter.voter_id}}</b>, com impressão digital de voto:
     <br /><br />
     <tt style="font-size: 2em;">{{voter.vote_hash}}</tt>
 </p>
 
 <p>
-    Visit the <a href="{% url "election@view" election.uuid %}">election homepage</a>.
+    Visite a <a href="{% url "election@view" election.uuid %}">página inicial da eleição</a>.
 </p>
 
 {% endblock %}

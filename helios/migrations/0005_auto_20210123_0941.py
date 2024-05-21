@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='election',
             name='election_type',
-            field=models.CharField(choices=[('election', 'Election'), ('referendum', 'Referendum')], default='election', max_length=250),
+            field=models.CharField(choices=[('eleicao', 'Eleição'), ('referendo', 'Referendo')], default='eleicao', max_length=250),
         ),
         migrations.AlterField(
             model_name='voterfile',
