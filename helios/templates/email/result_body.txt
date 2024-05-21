@@ -1,4 +1,4 @@
-Dear {{voter.name}},
+Caro(a) {{voter.name}},
 
 A apuração para {{election.name}} foi computada e divulgada:
 
