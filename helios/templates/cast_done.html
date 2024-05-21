@@ -10,7 +10,7 @@
     <span style="font-size:1.4em; font-weight: bold; word-break: break-word;">  {{vote_hash}}</span>
 </p>
 <p>
-  Este rastreador de voto matematicamente garante que seu voto será considerado. Você pode verificar todos os rastreadores de votos em <a href="{% url "election@voters@list-pretty" election.uuid %}">voter list</a>, onde o seu próprio rastreador de voto deve aparecer em alguns minutos.
+  Este rastreador de voto matematicamente garante que seu voto será considerado. Você pode verificar todos os rastreadores de votos em <a href="{% url "election@voters@list-pretty" election.uuid %}">lista de eleitores</a>, onde o seu próprio rastreador de voto deve aparecer em alguns minutos.
 </p>
 {% endif %}
 
@@ -21,7 +21,7 @@
 {% endif %}
 
 <p style="font-size: 1.4em;">
-[ <a href="{% url "election@view" election.uuid %}">return to election info</a> ]
+[ <a href="{% url "election@view" election.uuid %}">retornar às informações da eleição</a> ]
 </p>
 
 {% endblock %}

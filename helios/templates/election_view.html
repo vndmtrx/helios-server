@@ -9,7 +9,7 @@
 {% endif %}
 {% endif %}</h3>
 <p style="padding-top:0px; margin-top:0px">
-<em>{% if election.private_p %}private{%else%}pública{% endif %}</em> {{ election.election_type }}{% if settings.SHOW_USER_INFO %} criado(a) por <u><b>{{election.admin.display_html_small|safe}}</b></u>{% endif %}
+{{ election.election_type }} <em>{% if election.private_p %}privado(a){%else%}público(a){% endif %}</em> {% if settings.SHOW_USER_INFO %} criado(a) por <u><b>{{election.admin.display_html_small|safe}}</b></u>{% endif %}
 {% if election.is_archived %}
 [archived]
 {% endif %}

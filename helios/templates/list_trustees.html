@@ -43,7 +43,7 @@
 
 {% else %}
 {% for t in trustees %}
-<h5> Trustee #{{forloop.counter}}: {{t.name}} 
+<h5> Apurador #{{forloop.counter}}: {{t.name}} 
 {% if admin_p %}
 {% if t.secret_key %}
 {% if not election.frozen_at %}[<a onclick="return confirm('Tem certeza de que deseja remover Helios do cargo de apurador?');" href="{% url "election@trustees@delete" election.uuid %}?uuid={{t.uuid}}">x</a>]{% endif %}
