@@ -30,7 +30,7 @@ def cast_vote_verify_and_store(cast_vote_id, status_update_message=None, **kwarg
             user.update_status(status_update_message)
     else:
         logger = get_logger(cast_vote_verify_and_store.__name__)
-        logger.error("Failed to verify and store %d" % cast_vote_id)
+        logger.error("Falha ao verificar e armazenar %d" % cast_vote_id)
 
 
 @shared_task
@@ -92,9 +92,9 @@ def election_compute_tally(election_id):
     election.compute_tally()
 
     election_notify_admin.delay(election_id=election_id,
-                                subject="encrypted tally computed",
+                                subject="contagem criptografada computada",
                                 body="""
-The encrypted tally for election %s has been computed.
+A contagem criptografada para a eleição %s foi computada.
 
 --
 Helios
@@ -109,10 +109,10 @@ def tally_helios_decrypt(election_id):
     election = Election.objects.get(id=election_id)
     election.helios_trustee_decrypt()
     election_notify_admin.delay(election_id=election_id,
-                                subject='Helios Decrypt',
+                                subject='Criptografia Helios',
                                 body="""
-Helios has decrypted its portion of the tally
-for election %s.
+Helios descriptografou sua parte da contagem
+para a eleição %s.
 
 --
 Helios
@@ -124,12 +124,12 @@ def voter_file_process(voter_file_id):
     voter_file = VoterFile.objects.get(id=voter_file_id)
     voter_file.process()
     election_notify_admin.delay(election_id=voter_file.election.id,
-                                subject='voter file processed',
+                                subject='Arquivo de eleitor processado',
                                 body="""
-Your voter file upload for election %s
-has been processed.
+Upload do seu arquivo de eleitor para a eleição %s
+foi processado.
 
-%s voters have been created.
+%s eleitores foram criados.
 
 --
 Helios
