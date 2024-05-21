@@ -81,7 +81,6 @@ SITE_ID = 1
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
 USE_I18N = True
-USE_L10N = True
 
 DATE_FORMAT = 'd/m/Y'  # Formato de data: dia/mês/ano
 TIME_FORMAT = 'H:i T'  # Formato de hora: 24 horas
