@@ -44,11 +44,29 @@ cat <<EOF | python manage.py shell
 from helios_auth.models import User as HeliosUser
 HeliosUser.objects.create(
     user_type='password', 
-    name='Dudu', 
-    user_id='vndmtrx@duck.com', 
+    name='Eduardo R.', 
+    user_id='ens.rolim@gmail.com', 
     info={
-        'name':'Dudu', 
-        'password':'semsenha'
+        'name':'Eduardo R.', 
+        'password':'eduardo123'
+    }
+)
+HeliosUser.objects.create(
+    user_type='password', 
+    name='Paulo C.', 
+    user_id='paulocoelho@ufu.br', 
+    info={
+        'name':'Paulo C.', 
+        'password':'paulo123'
+    }
+)
+HeliosUser.objects.create(
+    user_type='password', 
+    name='Rafael P.', 
+    user_id='rafael.pasquini@ufu.br', 
+    info={
+        'name':'Rafael P.', 
+        'password':'rafael123'
     }
 )
 EOF
