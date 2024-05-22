@@ -35,15 +35,15 @@ Question #{$T.question$index + 1}: {$T.question.short_name}<br>
 
 {#if $T.election_metadata.use_advanced_audit_features}
 <div style="background: lightyellow; padding: 10px; border: 1px solid #ddd; max-width: 340px;">
-<h4 style="padding: 0px; margin:0px;"><a onclick="$('#auditbody').slideToggle(250);" href="#">Cancelar & Auditar</a> <span style="font-size: 0.8em; color: #444">[opcional]</span></h4>
+<h4 style="padding: 0px; margin:0px;"><a onclick="$('#auditbody').slideToggle(250);" href="#">Interromper & Auditar</a> <span style="font-size: 0.8em; color: #444">[opcional]</span></h4>
 <div id="auditbody" style="display:none;">
 <p>
-Se preferir, você pode cancelar este voto e revelar como suas escolhas foram criptografadas. Este é um processo de auditoria opcional.
+  Se preferir, você pode interromper este voto e auditar a criptografia da sua cédula. Trata-se de um processo opcional.
 </p>
 <p>
-Você será então orientado a criptografar novamente suas escolhas para a transmissão final.
+  Você será orientado a revisar novamente seu voto para o depósito da cédula na urna.
 </p>
-<button onclick="BOOTH.audit_ballot();" class="pretty">Cancele este voto e inicie a auditoria</button>
+<button onclick="BOOTH.audit_ballot();" class="pretty">Iniciar auditoria</button>
 </p>
 </div>
 </div>
