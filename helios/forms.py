@@ -4,6 +4,7 @@ Forms for Helios
 
 from django import forms
 from django.conf import settings
+import pytz
 
 from .fields import SplitDateTimeField
 from .models import Election
@@ -30,9 +31,63 @@ class ElectionForm(forms.Form):
   voting_ends_at = SplitDateTimeField(label="Fim da votação", help_text = 'Data e hora UTC em que a votação termina',
                                    widget=SplitSelectDateTimeWidget, required=False)
 
+  # INICIO - Ajustes TZ - Eduardo ROlim
+  def __init__(self, *args, **kwargs):
+      super().__init__(*args, **kwargs)
+      if 'voting_starts_at' in self.initial:
+          self.initial['voting_starts_at'] = self.to_localtime(self.initial['voting_starts_at'])
+      if 'voting_ends_at' in self.initial:
+          self.initial['voting_ends_at'] = self.to_localtime(self.initial['voting_ends_at'])
+
+  def to_localtime(self, value):
+      if value:
+          utc_value = timezone.make_aware(value, timezone.utc) if timezone.is_naive(value) else value
+          local_tz = pytz.timezone('America/Sao_Paulo')
+          return utc_value.astimezone(local_tz)
+      return value
+
+  def to_utc(self, value):
+      if value:
+          local_tz = pytz.timezone('America/Sao_Paulo')
+          local_dt = local_tz.localize(value)
+          return local_dt.astimezone(timezone.utc)
+      return value
+
+  def clean_voting_starts_at(self):
+      data = self.cleaned_data['voting_starts_at']
+      return self.to_utc(data)
+
+  def clean_voting_ends_at(self):
+      data = self.cleaned_data['voting_ends_at']
+      return self.to_utc(data)
+
 class ElectionTimeExtensionForm(forms.Form):
   voting_extended_until = SplitDateTimeField(label="Extensão da votação", help_text = 'Data e hora UTC em que a votação é extendida',
                                    widget=SplitSelectDateTimeWidget, required=False)
+
+  def __init__(self, *args, **kwargs):
+      super().__init__(*args, **kwargs)
+      if 'voting_extended_until' in self.initial:
+          self.initial['voting_extended_until'] = self.to_localtime(self.initial['voting_extended_until'])
+
+  def to_localtime(self, value):
+      if value:
+          utc_value = timezone.make_aware(value, timezone.utc) if timezone.is_naive(value) else value
+          local_tz = pytz.timezone('America/Sao_Paulo')
+          return utc_value.astimezone(local_tz)
+      return value
+
+  def to_utc(self, value):
+      if value:
+          local_tz = pytz.timezone('America/Sao_Paulo')
+          local_dt = local_tz.localize(value)
+          return local_dt.astimezone(timezone.utc)
+      return value
+
+  def clean_voting_extended_until(self):
+      data = self.cleaned_data['voting_extended_until']
+      return self.to_utc(data)
+  # FIM - Ajustes TZ - Eduardo Rolim
   
 class EmailVotersForm(forms.Form):
   subject = forms.CharField(max_length=80)
