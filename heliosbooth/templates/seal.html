@@ -3,7 +3,7 @@
 <div style="padding: 10px; margin-bottom: 10px; background-color: #eee; border: 1px #ddd solid;">
 {#foreach $T.questions as question}
 
-Question #{$T.question$index + 1}: {$T.question.short_name}<br>
+Questão #{$T.question$index + 1}: {$T.question.short_name}<br>
 {#if $T.choices[$T.question$index].length == 0}
 <div style="margin-left: 15px;">&#x2610; <b><i>Nenhuma escolha selecionada</i></b></div>
 {#/if}
