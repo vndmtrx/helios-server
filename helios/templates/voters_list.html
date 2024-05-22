@@ -66,7 +66,7 @@ Arquivos de eleitores carregados anteriormente:
 {% else %}
 {{vf.voter_file_content|length}}
 {% endif %}
- bytes, em {{vf.uploaded_at}}:
+ bytes, em {{vf.uploaded_at | para_gmt3}}:
 {% if vf.processing_finished_at %}
 <em>processamento completo: {{vf.num_voters}} eleitores carregados</em>
 {% else %}
