@@ -6,15 +6,15 @@ function verify_ballot(election_raw_json, encrypted_vote_json, status_cb) {
     try {
 	election = HELIOS.Election.fromJSONString(election_raw_json);
 	var election_hash = election.get_hash();
-	status_cb("fingerprint da eleição é " + election_hash);
+	status_cb("Fingerprint da eleição é " + election_hash);
 	
 	// display ballot fingerprint
 	encrypted_vote = HELIOS.EncryptedVote.fromJSONObject(encrypted_vote_json, election);
-	status_cb("rastreador da cédula é " + encrypted_vote.get_hash());
+	status_cb("Rastreador da cédula é " + encrypted_vote.get_hash());
 	
       // check the hash
       if (election_hash == encrypted_vote.election_hash) {
-          status_cb("fingerprint da eleição confere com a cédula");
+          status_cb("Fingerprint da eleição confere com a cédula");
       } else {
           overall_result = false;
           status_cb("PROBLEMA = fingerprint da eleição não confere com a cédula");          
@@ -24,7 +24,7 @@ function verify_ballot(election_raw_json, encrypted_vote_json, status_cb) {
       status_cb("Conteúdo da Cédula:");
       _(election.questions).each(function(q, qnum) {
 	      if (q.tally_type != "homomorphic") {
-		  status_cb("WARNING: the tally type for this question is not homomorphic. Verification may fail because this verifier is only set up to handle homomorphic ballots.");
+		  status_cb("AVISO: o tipo de contagem para esta questão não é homomórfico. A verificação pode falhar porque este verificador está configurado apenas para lidar com cédulas homomórficas.");
 	      }
         
 	      var answer_pretty_list = _(encrypted_vote.encrypted_answers[qnum].answer).map(function(aindex, anum) {
@@ -38,19 +38,19 @@ function verify_ballot(election_raw_json, encrypted_vote_json, status_cb) {
           status_cb("Criptografia Verificada");
       } else {
           overall_result = false;
-          status_cb("PROBLEM = Encryption doesn't match.");
+          status_cb("PROBLEMA = A criptografia não corresponde.");
       }
       
       // verify the proofs
       if (encrypted_vote.verifyProofs(election.public_key, function(ea_num, choice_num, result) {
       })) {
-          status_cb("Conferência realizada");
+          status_cb("Conferência Realizada");
       } else {
           overall_result = false;
-          status_cb("PROBLEM = Proofs don't work.");
+          status_cb("PROBLEMA = As provas não validam.");
       }
     } catch (e) {
-      status_cb('problem parsing election or ballot data structures, malformed inputs: ' + e.toString());
+      status_cb('Problema na análise de estruturas de dados eleitorais ou eleitorais, entradas malformadas:' + e.toString());
       overall_result=false;
     }
 
