@@ -86,8 +86,8 @@ SITE_ID = 1
 USE_I18N = True
 
 DATE_FORMAT = 'd/m/Y'  # Formato de data: dia/mês/ano
-TIME_FORMAT = 'H:i (e)'  # Formato de hora: 24 horas
-DATETIME_FORMAT = 'd/m/Y H:i (e)'  # Formato de data e hora
+TIME_FORMAT = 'H:i'  # Formato de hora: 24 horas
+DATETIME_FORMAT = 'd/m/Y H:i'  # Formato de data e hora
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
