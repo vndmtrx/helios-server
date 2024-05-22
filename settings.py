@@ -71,6 +71,7 @@ if get_from_env('DATABASE_URL', None):
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
 TIME_ZONE = 'UTC'
+USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -146,6 +147,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    #'helios.locale.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = 'urls'
