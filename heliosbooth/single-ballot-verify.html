@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="UTF-8">
 
-  <title>Helios Voting System</title>
+  <title>Sistema de Eleição Helios</title>
   <link rel="stylesheet" type="text/css" href="css/booth.css" />
   <link rel="stylesheet" type="text/css" href="css/forms.css" />
   <script language="javascript" src="js/jscrypto/jsbn.js"></script>
@@ -112,34 +112,34 @@ function verify_single_ballot(election_url, audit_trail) {
 </head>
 <body>
 <div id="wrapper">
-<h2 style="padding-left: 10px;">Helios Single-Ballot Verifier</h2>
+<h2 style="padding-left: 10px;">Verificador de votação única Helios</h2>
 <div id="content">
 
 <div id="verifier_loading">
-Loading verifier...
+  Carregando verificador...
 </div>
 
 <div id="dummy_bigint" style="display:none;">
-Your browser does not have the Java plugin installed.<br /><br />
-At this time, the Java plugin is required for browser-based ballot auditing, although it is not required for ballot preparation.
+  Seu navegador não possui o plugin Java instalado.<br /><br />
+  No momento, o plug-in Java é necessário para auditoria de cédulas baseada em navegador, embora não seja necessário para preparação de cédulas.
 </div>
 
 <div id="verifier" style="display:none;">
 <p style="font-size: 16pt;">
-    This single-ballot verifier lets you enter an audited ballot<br />and verify that it was prepared correctly.
+  Este verificador de votação única permite inserir uma cédula auditada<br />e verificar se ela foi preparada corretamente.
 </p>
 
 <form onsubmit="try {verify_single_ballot(this.election_url.value, this.audit_trail.value);} catch (e) {E = e;} return false;">
-Enter the Election URL:
+  Insira a URL da eleição:
     <input type="text" size="50" name="election_url" id="election_url" /><br />
 
 <p>
-Your Ballot:
+  Sua votação:
 </p>
 
 <textarea name="audit_trail" cols="80" rows="7">
 </textarea><br /><br />
-<input type="submit" class="pretty" value="Verify" />
+<input type="submit" class="pretty" value="Verificar" />
 </form>
 
 <br /><br />
