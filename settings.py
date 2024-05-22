@@ -149,7 +149,6 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'helios.locale.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = 'urls'
