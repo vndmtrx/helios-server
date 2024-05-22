@@ -189,12 +189,12 @@ Depois de fazer isso, a apuração estará visível apenas para você, o adminis
 <br />
 <br />
 {% if election.voting_extended_until %}
-Essa {{election.election_type}} foi inicialmente agendada para terminar em {{election.voting_ends_at}} (UTC),<br />
-mas foi extendida até {{ election.voting_extended_until }} (UTC).
+Essa {{election.election_type}} foi inicialmente agendada para terminar em {{election.voting_ends_at}},<br />
+mas foi extendida até {{ election.voting_extended_until }}.
 {% else %}
 {% if election.voting_ends_at %}
 <br />
-Essa {{election.election_type}} está agendada para terminar em {{election.voting_ends_at}} (UTC).
+Essa {{election.election_type}} está agendada para terminar em {{election.voting_ends_at}}.
 {% else %}
 Essa {{election.election_type}} termina quando o administrador a encerrar.
 {% endif %}
