@@ -561,7 +561,7 @@ BOOTH.audit_ballot = function() {
 
 BOOTH.post_audited_ballot = function() {
   $.post(BOOTH.election_url + "/post-audited-ballot", {'audited_ballot': BOOTH.audit_trail}, function(result) {
-    alert('Esta cédula auditada foi publicada.\nLembre-se, este voto será usado apenas para auditoria e não será contabilizada.\nClique em "voltar à votação" e lance uma nova cédula para garantir que seu voto conte.');
+    alert('A cédula auditada foi publicizada.\nEste voto, portanto, tem finalidade exclusiva de auditoria e não está contabilizado na votação.\nClique em "Voltar para a votação" e deposite seu voto que efetivamente será contabilizado na votação.');
   });
 };
 
