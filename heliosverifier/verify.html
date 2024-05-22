@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8" /> 
-  <title>Helios Voting System -- Verifier</title>
+  <title>Sistema de Eleição Helios - Verificação</title>
   <link rel="stylesheet" type="text/css" href="css/booth.css" />
   <link rel="stylesheet" type="text/css" href="css/forms.css" />
   <script language="javascript" src="js/jscrypto/jsbn.js"></script>
@@ -194,7 +194,7 @@ function load_election_and_ballots(election_url) {
                            result_append("<h3>Contagem</h3>");
 
                            $(tally).each(function(q_num, q) {
-                               result_append("Question #" + (q_num+1) + ": " + election.questions[q_num].short_name);
+                               result_append("Questão #" + (q_num+1) + ": " + election.questions[q_num].short_name);
                                $(q).each(function(a_num, a) {
                                    var plaintext = new ElGamal.Plaintext(election.public_key.g.modPow(BigInt.fromInt(results[q_num][a_num]), election.public_key.p), election.public_key);
 
