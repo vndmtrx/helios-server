@@ -112,7 +112,7 @@ function verify_single_ballot(election_url, audit_trail) {
 </head>
 <body>
 <div id="wrapper">
-<h2 style="padding-left: 10px;">Verificador de votação única Helios</h2>
+<h2 style="padding-left: 10px;">Verificador de cédula auditada Helios</h2>
 <div id="content">
 
 <div id="verifier_loading">
@@ -126,7 +126,7 @@ function verify_single_ballot(election_url, audit_trail) {
 
 <div id="verifier" style="display:none;">
 <p style="font-size: 16pt;">
-  Este verificador de votação única permite inserir uma cédula auditada<br />e verificar se ela foi preparada corretamente.
+  Este verificador permite conferir o conteúdo criptografado de uma cédula auditada Helios.
 </p>
 
 <form onsubmit="try {verify_single_ballot(this.election_url.value, this.audit_trail.value);} catch (e) {E = e;} return false;">
@@ -134,7 +134,7 @@ function verify_single_ballot(election_url, audit_trail) {
     <input type="text" size="50" name="election_url" id="election_url" /><br />
 
 <p>
-  Sua votação:
+  Sua cédula auditada:
 </p>
 
 <textarea name="audit_trail" cols="80" rows="7">
