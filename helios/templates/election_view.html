@@ -1,4 +1,7 @@
 {% extends TEMPLATE_BASE %}
+
+{% load timezone_filters %}
+
 {% block title %}{{election.name}}{% endblock %}
 {% block content %}
 <div style="float: left; margin-right: 50px;">
@@ -48,8 +51,8 @@ esta {{election.election_type}} <u>não está</u> destacada na página inicial.
 
 <p>
 {% if election.help_email and admin_p%}Endereço de Email para Ajuda: {{election.help_email}}<br />{% endif %}
-{% if election.voting_start_at %}Votação começa em {{election.voting_start_at}}<br />{% endif %}
-{% if election.voting_end_at %}Votação termina em {{election.voting_end_at}}<br />{% endif %}
+{% if election.voting_start_at %}Votação começa em {{election.voting_start_at | para_gmt3}}<br />{% endif %}
+{% if election.voting_end_at %}Votação termina em {{election.voting_end_at | para_gmt3}}<br />{% endif %}
 </p>
 
 {% if election.election_info_url %}

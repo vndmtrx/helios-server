@@ -1,5 +1,7 @@
 {% extends TEMPLATE_BASE %}
 
+{% load timezone_filters %}
+
 {% block content %}
 
   <h2 class="title">A Eleição {{election.name}} já foi apurada</h2>
@@ -9,8 +11,8 @@
   </p>
   
   <p>
-      {% if election.voting_start_at %}Votação começa em {{election.voting_start_at}}<br />{% endif %}
-      {% if election.voting_end_at %}Votação termina em {{election.voting_end_at}}<br />{% endif %}
+      {% if election.voting_start_at %}Votação começa em {{election.voting_start_at | para_gmt3}}<br />{% endif %}
+      {% if election.voting_end_at %}Votação termina em {{election.voting_end_at | para_gmt3}}<br />{% endif %}
   </p>
   
   <p>
