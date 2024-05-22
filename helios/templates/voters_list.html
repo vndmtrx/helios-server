@@ -2,7 +2,7 @@
 
 {% load timezone_filters %}
 
-{% block title %}Voters &amp; Centro de Rastreamento de Cédulas para {{election.name}}{% endblock %}
+{% block title %}Eleitores &amp; Centro de Rastreamento de Cédulas para {{election.name}}{% endblock %}
 {% block content %}
   <h3 class="title">{{election.name}} &mdash; Centro de Rastreamento de Cédulas e Eleitores <span style="font-size:0.7em;">[<a href="{% url "election@view" election.uuid %}">voltar para a eleição</a>]</span></h3>
 
