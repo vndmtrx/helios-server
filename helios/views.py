@@ -432,8 +432,8 @@ def trustee_login(request, election_short_name, trustee_email, trustee_secret):
         set_logged_in_trustee(request, trustee)
         return HttpResponseRedirect(settings.SECURE_URL_HOST + reverse(url_names.election.ELECTION_TRUSTEE_HOME, args=[election.uuid, trustee.uuid]))
     # bad secret or no such trustee
-    raise Http404("Trustee not recognized.")
-  raise Http404("No election {} found.".format(election_short_name))
+    raise Http404("Apurador não encontrado.")
+  raise Http404("Eleição {} não encontrada.".format(election_short_name))
 
 @election_admin()
 def trustee_send_url(request, election, trustee_uuid):
@@ -443,9 +443,9 @@ def trustee_send_url(request, election, trustee_uuid):
   
   body = """
 
-You are a trustee for %s.
+Você é um apurador habilitado para %s.
 
-Your trustee dashboard is at
+Seu painel de apuração está em
 
   %s
   
@@ -453,7 +453,7 @@ Your trustee dashboard is at
 Helios  
 """ % (election.name, url)
 
-  utils.send_email(settings.SERVER_EMAIL, ["%s <%s>" % (trustee.name, trustee.email)], 'your trustee homepage for %s' % election.name, body)
+  utils.send_email(settings.SERVER_EMAIL, ["%s <%s>" % (trustee.name, trustee.email)], 'Sua página de apuração para %s' % election.name, body)
 
   logging.info("URL %s " % url)
   return HttpResponseRedirect(settings.SECURE_URL_HOST + reverse(url_names.election.ELECTION_TRUSTEES_VIEW, args = [election.uuid]))
@@ -484,7 +484,7 @@ def trustee_upload_pk(request, election, trustee):
     
     # send a note to admin
     try:
-      election.admin.send_message("%s - trustee pk upload" % election.name, "trustee %s (%s) uploaded a pk." % (trustee.name, trustee.email))
+      election.admin.send_message("%s - sua chave de apurador foi carregada" % election.name, "Apurador %s (%s) carregou uma chave de apuração." % (trustee.name, trustee.email))
     except:
       # oh well, no message sent
       pass

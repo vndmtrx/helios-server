@@ -18,11 +18,11 @@
 {% if not election.frozen_at %}
 
 <p>
-  Se você não quiser cadastrar apuradores externos ao sistema, O Helios é 
+  Se você não quiser cadastrar apuradores externos ao sistema, o Helios é 
   automaticamente seu primeiro apurador e irá tratar da geração de chaves e 
   desencriptação automaticamente.<br />
   Se você cadastrar apuradores adicionais, você pode remover o Helios como 
-  apurador, clicando no botão de excluir da opção "Sistema de Votação Online"
+  apurador, clicando no botão de excluir da opção "Sistema de Eleições UFU"
   na listagem de apuradores abaixo.<br />
 </p>
 
@@ -50,7 +50,7 @@
 {% else %}
 ({{t.email}})
 {% if not election.frozen_at %}[<a onclick="return confirm('Tem certeza de que deseja remover este apurador?');" href="{% url "election@trustees@delete" election.uuid %}?uuid={{t.uuid}}">x</a>]{% endif %}
-[<a onclick="return confirm('Tem certeza de que deseja enviar a este apurador a sua URL de apurador?');" href="{% url "election@trustee@send-url" election.uuid t.uuid %}">enviar login</a>]
+[<a onclick="return confirm('Tem certeza de que deseja enviar a este apurador a sua URL de apurador?');" href="{% url "election@trustee@send-url" election.uuid t.uuid %}">Enviar e-mail</a>]
 {% endif %}
 {% endif %}
 </h5>
