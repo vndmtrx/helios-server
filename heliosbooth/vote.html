@@ -229,7 +229,7 @@ BOOTH.launch_async_encryption_answer = function(question_num) {
 BOOTH.validate_question = function(question_num) {
     // check if enough answers are checked
     if (BOOTH.ballot.answers[question_num].length < BOOTH.election.questions[question_num].min) {
-        alert('You need to select at least ' + BOOTH.election.questions[question_num].min + ' answer(s).');
+        alert('Você precisa selecionar pelo menos ' + BOOTH.election.questions[question_num].min + ' resposta(s).');
         return false;
     }
 
@@ -351,7 +351,7 @@ BOOTH.click_checkbox = function(question_num, answer_num, checked_p) {
      });
      $('#warning_box').html("");
      if (BOOTH.election.questions[question_num].max != null && (BOOTH.ballot.answers[question_num].length < BOOTH.election.questions[question_num].max)) {
-        $('#warning_box').html("You may select up to " + BOOTH.election.questions[question_num].max + " choices total.");
+        $('#warning_box').html("Você pode selecionar até " + BOOTH.election.questions[question_num].max + " opções no total.");
      }
   }
 };
