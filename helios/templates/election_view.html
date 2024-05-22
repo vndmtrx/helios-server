@@ -300,7 +300,7 @@ Qualquer eleitor que tenha um nome de usuário e senha no sistema.
 {% if election.voting_has_stopped %}
 <p style="font-size: 1.2em;">
 {% if election.result %}
-verify <a target="_blank" href="/verifier/verify.html?election_url={% url "election@home" election.uuid %}">apuração da eleição</a>.
+Verificar a <a target="_blank" href="/verifier/verify.html?election_url={% url "election@home" election.uuid %}">apuração da eleição</a>.
 {% endif %}
 
 Visualizar a <a href="{{vote_url}}">cabine de votação</a>.
