@@ -262,16 +262,16 @@ $(document).ready(function() {
 <body>
 <div id="wrapper">
 <div id="banner">
-    Helios Election Verifier
+    Verificador de Eleições Helios
 </div>
 <div id="content">
 
 <div id="verifier_loading">
-loading verifier ...
+carregando verificador ...
 </div>
 
 <div id="verifier" align="center" style="display:none;">
-Enter the Election URL:
+Entre a URL da eleição:
 <form onsubmit="try{load_election_and_ballots(this.election_url.value);} catch (e) {} return false;">
     <input type="text" size="50" name="election_url" id="election_url" /><br />
     <input type="submit" value="start verification" />
