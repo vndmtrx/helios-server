@@ -100,7 +100,7 @@ esta {{election.election_type}} <u>não está</u> destacada na página inicial.
 <br />
 {% if election.voting_starts_at %}
 Após fazer isso, a eleição estará pronta para votação e será aberta automaticamente<br />
-em {{election.voting_starts_at}}, conforme configurado.<br />
+em {{election.voting_starts_at | para_gmt3}}, conforme configurado.<br />
 ATENÇÃO:  caso você tenha cadastrado uma lista de eleitores, é necessário
 enviar email para os mesmos, para que recebam usuário e senha para votação. 
 Sem esses dados, eles não poderão votar.
@@ -192,12 +192,12 @@ Depois de fazer isso, a apuração estará visível apenas para você, o adminis
 <br />
 <br />
 {% if election.voting_extended_until %}
-Essa {{election.election_type}} foi inicialmente agendada para terminar em {{election.voting_ends_at}},<br />
+Essa {{election.election_type}} foi inicialmente agendada para terminar em {{election.voting_ends_at | para_gmt3}},<br />
 mas foi extendida até {{ election.voting_extended_until }}.
 {% else %}
 {% if election.voting_ends_at %}
 <br />
-Essa {{election.election_type}} está agendada para terminar em {{election.voting_ends_at}}.
+Essa {{election.election_type}} está agendada para terminar em {{election.voting_ends_at | para_gmt3}}.
 {% else %}
 Essa {{election.election_type}} termina quando o administrador a encerrar.
 {% endif %}
