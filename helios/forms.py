@@ -27,9 +27,9 @@ class ElectionForm(forms.Form):
     election_info_url = forms.CharField(required=False, initial="", label="URL de download de informações eleitorais", help_text="URL de um documento PDF que contém informações eleitorais extras, por exemplo: biografias e declarações de candidatos")
   
   # times
-  voting_starts_at = SplitDateTimeField(label="Início da votação", help_text = 'Data e hora UTC em que a votação começa',
+  voting_starts_at = SplitDateTimeField(label="Início da votação", help_text = 'Data e hora em que a votação começa',
                                    widget=SplitSelectDateTimeWidget, required=False)
-  voting_ends_at = SplitDateTimeField(label="Fim da votação", help_text = 'Data e hora UTC em que a votação termina',
+  voting_ends_at = SplitDateTimeField(label="Fim da votação", help_text = 'Data e hora em que a votação termina',
                                    widget=SplitSelectDateTimeWidget, required=False)
 
   # INICIO - Ajustes TZ - Eduardo ROlim
@@ -63,7 +63,7 @@ class ElectionForm(forms.Form):
       return self.to_utc(data)
 
 class ElectionTimeExtensionForm(forms.Form):
-  voting_extended_until = SplitDateTimeField(label="Extensão da votação", help_text = 'Data e hora UTC em que a votação é extendida',
+  voting_extended_until = SplitDateTimeField(label="Extensão da votação", help_text = 'Data e hora em que a votação é extendida',
                                    widget=SplitSelectDateTimeWidget, required=False)
 
   def __init__(self, *args, **kwargs):
