@@ -32,4 +32,4 @@ Você pode verificar o fingerprint da eleição na parte inferior
 da tela quando estiver votando: {{voter.election.hash}}
 
 --
-Sistema de Votação UFU
+Sistema de Eleições UFU

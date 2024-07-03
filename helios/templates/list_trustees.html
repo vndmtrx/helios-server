@@ -28,7 +28,7 @@
 
 {% if admin_p %}
 <p>
-    [ <a onclick="return(confirm('Adicionar seu próprio administrador requer um pouco mais de trabalho para contabilizar a eleição.\nVocê precisará fazer com que os administradores gerem pares de chaves e protejam suas chaves secretas.\n\nSe você não tiver certeza do que isso significa, recomendamos fortemente\nclicar em Cancelar e deixar Helios compute a eleição para você.'));" href="{% url "election@trustees@new" election.uuid %}">adicionar um apurador</a> ]
+    [ <a onclick="return(confirm('Adicionar seu próprio administrador requer um pouco mais de trabalho para contabilizar a eleição.\n\nVocê precisará fazer com que os administradores gerem pares de chaves e protejam suas chaves secretas.\n\nSe você não tiver certeza do que isso significa, recomendamos fortemente clicar em Cancelar e deixar Helios compute a eleição para você.'));" href="{% url "election@trustees@new" election.uuid %}">adicionar um apurador</a> ]
 </p>
 {% if not election.has_helios_trustee %}
 <p>

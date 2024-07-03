@@ -1330,6 +1330,7 @@ def voters_email(request, election):
     ('vote', 'Hora de Votar'),
     ('simple', 'Simples'),
     ('info', 'Informações Adicionais'),
+    ('em_branco', 'Em Branco'),
     ('result', 'Resultado')
     ]
 

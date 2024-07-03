@@ -16,4 +16,4 @@ Parece que você não votou nesta eleição.
 Entre em contato conosco se você acredita que sim.
 {% endif %}
 --
-Helios
+Sistema de Eleições UFU

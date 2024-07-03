@@ -1,6 +1,3 @@
 Caro(a) {{voter.name}},
 
 {{custom_message|safe}}
-
---
-Sistema de Votação UFU
