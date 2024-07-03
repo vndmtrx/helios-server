@@ -14,4 +14,4 @@ Seu pseudônimo de eleitor é:{{voter.alias}}.
 {% endif %}
 
 --
-Helios
+Sistema de Eleições UFU
