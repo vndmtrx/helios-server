@@ -237,6 +237,11 @@ def one_election_edit(request, election):
     values = {}
     for attr_name in RELEVANT_FIELDS:
       values[attr_name] = getattr(election, attr_name)
+      # INICIO - Ajustes TZ - Eduardo Rolim
+      if attr_name in ('voting_starts_at', 'voting_ends_at'):
+        ef = forms.ElectionForm()
+        values[attr_name] = ef.to_localtime(getattr(election, attr_name))
+      # FIM - Ajustes TZ - Eduardo Rolim
     election_form = forms.ElectionForm(values)
   else:
     check_csrf(request)
