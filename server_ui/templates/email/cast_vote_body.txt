@@ -2,7 +2,7 @@ Caro(a) {{voter.name}},
 
 Você votou com sucesso em {{election.name}}.
 
-Seu rastreador de votação é:
+Seu rastreador do voto é:
 {{cast_vote.vote_hash}}
 
 E sua cédula criptografada completa está arquivada em:
@@ -12,6 +12,8 @@ E sua cédula criptografada completa está arquivada em:
 Esta eleição usa pseudônimos de eleitor para proteger sua privacidade.
 Seu pseudônimo de eleitor é:{{voter.alias}}.
 {% endif %}
+
+Você pode votar quantas vezes quiser. Apenas o último voto será considerado.
 
 --
 Sistema de Eleições UFU
