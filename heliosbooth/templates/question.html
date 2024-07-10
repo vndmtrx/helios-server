@@ -10,9 +10,9 @@
   selecione
 {#if $T.question.min && $T.question.min > 0}
 {#if $T.question.max}
- no mínimo {$T.question.min} opção(ões) e no máximo {$T.question.max} opção(ões)
+ no mínimo {$T.question.min} (uma) opção e no máximo {$T.question.max} (uma) opção.
 {#else}
-no mínimo {$T.question.min} opção(ões)
+no mínimo {$T.question.min} (uma) opção.
 {#/if}
 {#else}
 {#if $T.question.max}
@@ -24,7 +24,7 @@ quantas desejar
 </span>
 </p>
 <p>
-  <span style="font-size: 0.6em;">Após selecionada uma opção, para alterar é necessário desmarcar a opção anteriormente selecionada.</span>
+  <span style="font-size: 0.6em;">Após selecionada uma opção, para alterá-la, é necessário desmarcar a opção anteriormente selecionada.</span>
 </p>
 
 {#foreach $T.question.answers as answer}
