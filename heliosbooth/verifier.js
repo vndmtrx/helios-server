@@ -6,7 +6,7 @@ function verify_ballot(election_raw_json, encrypted_vote_json, status_cb) {
     try {
 	election = HELIOS.Election.fromJSONString(election_raw_json);
 	var election_hash = election.get_hash();
-	status_cb("Fingerprint da eleição é " + election_hash);
+	status_cb("Identificador da eleição é " + election_hash);
 	
 	// display ballot fingerprint
 	encrypted_vote = HELIOS.EncryptedVote.fromJSONObject(encrypted_vote_json, election);
@@ -14,10 +14,10 @@ function verify_ballot(election_raw_json, encrypted_vote_json, status_cb) {
 	
       // check the hash
       if (election_hash == encrypted_vote.election_hash) {
-          status_cb("Fingerprint da eleição confere com a cédula");
+          status_cb("Identificação da eleição confere com a cédula");
       } else {
           overall_result = false;
-          status_cb("PROBLEMA = fingerprint da eleição não confere com a cédula");          
+          status_cb("PROBLEMA = identificação da eleição não confere com a cédula");          
       }
       
       // display the ballot as it is claimed to be

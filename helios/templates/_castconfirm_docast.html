@@ -18,12 +18,11 @@
 
 Você está logado como <u>{{voter.display_html_big|safe}}</u><br /><br />
 
-    <button type="submit" class="large">DEPOSITE este voto</button>
-    <span style="font-size:0.8em;"><br />Você pode votar quantas vezes quiser.<br />Apenas o último voto será considerado.</span>
+    <button type="submit" class="large" style="background-color: rgb(0, 170, 0);">CONFIRMA</button>
 </form>
 
 <p>
-    <button class="tiny" onclick="if (confirm('Tem certeza de que deseja cancelar esta cédula e NÃO depositá-la na urna?')) {document.location='{% url "election@view" election.uuid %}';}">cancelar</button><br />
+    <button style="background-color: rgb(218, 120, 0);" onclick="if (confirm('Tem certeza de que deseja cancelar esta cédula e NÃO depositá-la na urna?')) {document.location='{% url "election@view" election.uuid %}';}">CANCELA</button><br />
     <span style="font-size:0.8em;">Se você cancelar agora. seu voto <em>NÃO</em> será gravado.<br />
     Você pode, é claro, reiniciar o processo de votação.</span>
 </p>

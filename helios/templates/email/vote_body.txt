@@ -9,7 +9,7 @@ URL da eleição (clique para iniciar a votação):
 Seu ID de eleitor: {{voter.voter_login_id}}
 Sua senha: {{voter.voter_password}}
 {% else %}
-Faça o log in com sua conta {{voter.voter_type}}.
+Faça o login com sua conta {{voter.voter_type}}.
 {% endifequal %}{% if voter.vote_hash %}
 Seu voto foi gravado com o rastreador de votação:
 
@@ -24,11 +24,11 @@ de eleitor.
 
 Seu pseudônimo de eleitor é {{voter.alias}}.
 
-IMPORTANTE: quando fizer o log in para votar,
-por favor utilize seu *ID de eleitor*, e não o seu alias.
+IMPORTANTE: quando fizer o login para votar,
+por favor utilize seu *ID de eleitor*, e não o seu pseudônimo.
 {% endif %}
 
-Você pode verificar o fingerprint da eleição na parte inferior
+Você pode verificar o identificador da eleição na parte inferior
 da tela quando estiver votando: {{voter.election.hash}}
 
 --

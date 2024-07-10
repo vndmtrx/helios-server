@@ -349,9 +349,9 @@ BOOTH.click_checkbox = function(question_num, answer_num, checked_p) {
      $('.ballot_answer').each(function(i, checkbox) {
        checkbox.disabled = false;
      });
-     $('#warning_box').html("");
+     $('#warning_box').html("Para selecionar outra opção, é necessário desmarcar a opção anteriormente selecionada.");
      if (BOOTH.election.questions[question_num].max != null && (BOOTH.ballot.answers[question_num].length < BOOTH.election.questions[question_num].max)) {
-        $('#warning_box').html("Você pode selecionar até " + BOOTH.election.questions[question_num].max + " opções no total.");
+        $('#warning_box').html("Você pode selecionar até " + BOOTH.election.questions[question_num].max + " opção(ões) no total.\n\nPara selecionar outra opção, é necessário desmarcar a opção anteriormente selecionada.");
      }
   }
 };

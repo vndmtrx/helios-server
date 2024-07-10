@@ -4,7 +4,7 @@
 {% block content %}
 <h2 class="title">Votar {{cast_vote.vote_tinyhash}}</h2>
 votar em <a href="{% url "election@view" election.uuid %}">{{election.name}}</a><br />
-Fingerprint: <tt>{{cast_vote.vote_hash}}</tt><br />
+Rastreador do voto: <tt>{{cast_vote.vote_hash}}</tt><br />
 por <b><u>
 {% if the_voter.alias %}
 {{the_voter.alias}}
