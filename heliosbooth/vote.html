@@ -351,7 +351,7 @@ BOOTH.click_checkbox = function(question_num, answer_num, checked_p) {
      });
      $('#warning_box').html("");
      if (BOOTH.election.questions[question_num].max != null && (BOOTH.ballot.answers[question_num].length < BOOTH.election.questions[question_num].max)) {
-        $('#warning_box').html("Você pode selecionar até " + BOOTH.election.questions[question_num].max + " opção(ões) no total.");
+        $('#warning_box').html("Você pode selecionar até " + BOOTH.election.questions[question_num].max + " (uma) opção no total.");
      }
   }
 };
