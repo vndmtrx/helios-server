@@ -32,7 +32,7 @@ class ElectionForm(forms.Form):
   voting_ends_at = SplitDateTimeField(label="Fim da votação", help_text = 'Data e hora em que a votação termina',
                                    widget=SplitSelectDateTimeWidget, required=False)
 
-  # INICIO - Ajustes TZ - Eduardo ROlim
+  # INICIO - Ajustes TZ - Eduardo Rolim
   def __init__(self, *args, **kwargs):
       super().__init__(*args, **kwargs)
       if 'voting_starts_at' in self.initial:
