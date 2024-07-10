@@ -7,12 +7,12 @@
 <b>{$T.question.question}</b>
 <br />
 <span style="font-size: 0.6em;">questão #{$T.question_num + 1} de {$T.last_question_num + 1} &mdash;
-  você deve marcar
+  selecione
 {#if $T.question.min && $T.question.min > 0}
 {#if $T.question.max}
- {$T.question.min} até {$T.question.max}
+ no mínimo {$T.question.min} opção(ões) e no máximo {$T.question.max} opção(ões)
 {#else}
-no mínimo {$T.question.min}
+no mínimo {$T.question.min} opção(ões)
 {#/if}
 {#else}
 {#if $T.question.max}
