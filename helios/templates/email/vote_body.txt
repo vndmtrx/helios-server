@@ -19,7 +19,7 @@ Você pode votar novamente se desejar: apenas o último voto conta.
 {% endif %}{% if election.use_voter_aliases %}
 Para proteger sua privacidade, esta eleição é configurada
 para nunca exibir seu ID de eleitor, nome ou e-mail para o público.
-Em vez disso, o centro de rastramento de votos exibirá o seu pseudônimo
+Em vez disso, o centro de rastreamento de votos exibirá o seu pseudônimo
 de eleitor.
 
 Seu pseudônimo de eleitor é {{voter.alias}}.

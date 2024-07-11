@@ -4,7 +4,7 @@
 <h4>
 {#if $T.admin_p}[
 {#if $T.question$index > 0}<a href="javascript:question_move_up({$T.question$index});">^</a>]&nbsp;[{#/if}
-<a onclick="return confirm('Tem certeza de que deseja remover esta pergunta?');" href="javascript:question_remove({$T.question$index})">x</a>] [<a href="javascript:question_edit({$T.question$index})">edit</a>] {#/if}{$T.question$index + 1}. {$T.question.question} ({$T.question.choice_type}, selecione entre as respostas {$T.question.min} e {#if $T.question.max != null}{$T.question.max}{#else}unlimited{#/if}, tipo de resultado {$T.question.result_type}{#if $T.question.randomize_answer_order}, ordem de resposta aleatória{#/if}.)</h4>
+<a onclick="return confirm('Tem certeza de que deseja remover esta pergunta?');" href="javascript:question_remove({$T.question$index})">x</a>] [<a href="javascript:question_edit({$T.question$index})">edit</a>] {#/if}{$T.question$index + 1}. {$T.question.question} ({$T.question.choice_type}, selecione no mínimo {$T.question.min} (uma) opção e no máximo {#if $T.question.max != null}{$T.question.max}{#else}unlimited{#/if} (uma) opção, tipo de resultado {$T.question.result_type}{#if $T.question.randomize_answer_order}, ordem de resposta aleatória{#/if}.)</h4>
 <ul>
 {#foreach $T.question.answers as answer}
 <li> {$T.answer}
