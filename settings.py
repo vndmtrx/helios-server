@@ -238,7 +238,7 @@ ALLOW_ELECTION_INFO_URL = (get_from_env('ALLOW_ELECTION_INFO_URL', '0') == '1')
 FOOTER_LINKS = json.loads(get_from_env('FOOTER_LINKS', '[]'))
 FOOTER_LOGO_URL = get_from_env('FOOTER_LOGO_URL', None)
 
-WELCOME_MESSAGE = get_from_env('WELCOME_MESSAGE', "Seja bem-vindo(a) à plataforma de eleições Helios!<br />Vote com consciência e contribua para a democracia acadêmica.")
+WELCOME_MESSAGE = get_from_env('WELCOME_MESSAGE', "Seja bem-vindo(a) à plataforma de eleições Helios!<br />Para votar, utilize a URL da eleição, o ID de eleitor e a senha enviados para seu e-mail.")
 
 HELP_EMAIL_ADDRESS = get_from_env('HELP_EMAIL_ADDRESS', 'help@heliosvoting.org')
 
